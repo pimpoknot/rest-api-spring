@@ -1,6 +1,5 @@
 package com.prvendasstore.vendas.api;
 
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.Arrays;

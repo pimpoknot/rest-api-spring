@@ -3,27 +3,28 @@ package com.prvendasstore.vendas.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Table(name = "ITEM_PEDIDO")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "PEDIDO_ID")
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
     @ManyToOne
-    @JoinColumn(name = "PRODUTO_ID")
+    @JoinColumn(name = "produto_id")
     private Produto produto;
 
-    @Column(name = "QUANTIDADE")
+    @Column
     private Integer quantidade;
+
 
 }

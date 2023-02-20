@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
-@Entity
-@Table(name = "cliente")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table( name = "cliente" )
 public class Cliente {
 
     @Id
@@ -28,17 +28,12 @@ public class Cliente {
     private String cpf;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "cliente" , fetch = FetchType.LAZY )
     private Set<Pedido> pedidos;
-
 
     public Cliente(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
-    }
-
-    public Set<Pedido> getPedidos() {
-        return pedidos;
     }
 
 }

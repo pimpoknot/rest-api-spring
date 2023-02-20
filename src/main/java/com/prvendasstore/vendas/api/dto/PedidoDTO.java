@@ -1,18 +1,18 @@
 package com.prvendasstore.vendas.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PedidoDTO {
-
     private Integer cliente;
     private BigDecimal total;
     private List<ItemPedidoDTO> items;
-
-
 }
