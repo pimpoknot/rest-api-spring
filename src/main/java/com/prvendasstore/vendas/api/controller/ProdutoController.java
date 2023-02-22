@@ -10,6 +10,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
@@ -24,7 +26,7 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity save(@RequestBody Produto produto) {
+    public ResponseEntity save(@RequestBody @Valid Produto produto) {
         Produto produtoSalvo = repository.save(produto);
         return ResponseEntity.ok(produtoSalvo);
     }
@@ -62,7 +64,7 @@ public class ProdutoController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Integer id, @RequestBody Produto produto) {
+    public void update(@PathVariable Integer id, @RequestBody @Valid Produto produto) {
         repository.findById(id)
                 .map(produtoExistente -> {
                     produto.setId(produtoExistente.getId());

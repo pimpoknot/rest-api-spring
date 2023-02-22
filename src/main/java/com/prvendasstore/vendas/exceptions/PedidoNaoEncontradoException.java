@@ -1,4 +1,4 @@
-package com.prvendasstore.vendas.excpection;
+package com.prvendasstore.vendas.exceptions;
 
 public class PedidoNaoEncontradoException extends RuntimeException {
 
